@@ -127,6 +127,14 @@ public class Animals : MonoBehaviour
         PartPrefabsData hitBodyPart = hitObject.GetComponent<PartPrefabsData>();
         Animals hitAnimals = hitObject.GetComponent<Animals>();
         hitAnimals.TakeDamage(attack, currentAttackBonus, currentAttackType, hitBodyPart);
+        if (hitAnimals.GetHitPoint()<=0)
+        {
+            WinGame();
+        }
+    }
+
+    public float GetHitPoint(){
+        return hitPoint;
     }
 
     public float GetAttack(){
@@ -137,6 +145,10 @@ public class Animals : MonoBehaviour
     }
     public float GetAgility(){
         return agility;
+    }
+    
+    void WinGame(){
+        if(this.gameObject != null) Debug.Log("You win");
     }
 
     public void ReduceHitpoint(float damage){
