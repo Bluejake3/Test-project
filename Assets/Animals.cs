@@ -6,10 +6,14 @@ using UnityEngine.InputSystem;
 public class Animals : MonoBehaviour
 {
     [Header("Body Parts")]
-    [SerializeField] private PartPrefabsData headPart;
-    [SerializeField] private PartPrefabsData forelegPart;
-    [SerializeField] private PartPrefabsData backlegPart;
-    [SerializeField] private PartPrefabsData torsoPart;
+    [SerializeField] private GameObject headPart;
+    [SerializeField] private GameObject forelegPart;
+    [SerializeField] private GameObject backlegPart;
+    [SerializeField] private GameObject torsoPart;
+    private PartPrefabsData headPartData;
+    private PartPrefabsData forelegPartData;
+    private PartPrefabsData backlegPartData;
+    private PartPrefabsData torsoPartData;
     bool validBody = false;
 
     [Header("Basic Stats")]
@@ -25,25 +29,31 @@ public class Animals : MonoBehaviour
     float currentAttackBonus = 0;
     AttackType currentAttackType;
 
-
     private void Awake() {
+        headPartData = headPart.GetComponent<PartPrefabsData>();
+        forelegPartData = forelegPart.GetComponent<PartPrefabsData>();
+        backlegPartData = backlegPart.GetComponent<PartPrefabsData>();
+        torsoPartData = torsoPart.GetComponent<PartPrefabsData>();
+    }
+
+    private void Start() {
         CheckValidity();
         GatherStat();
     }
 
     void CheckValidity(){
-        if(headPart.GetBodyPartType() != BodyPartType.head) return;
-        if(forelegPart.GetBodyPartType() != BodyPartType.foreleg) return;
-        if(backlegPart.GetBodyPartType() != BodyPartType.backleg) return;
-        if(torsoPart.GetBodyPartType() != BodyPartType.torso) return;
+        if(headPartData.GetBodyPartType() != BodyPartType.head) return;
+        if(forelegPartData.GetBodyPartType() != BodyPartType.foreleg) return;
+        if(backlegPartData.GetBodyPartType() != BodyPartType.backleg) return;
+        if(torsoPartData.GetBodyPartType() != BodyPartType.torso) return;
         validBody = true;
     }
     void GatherStat(){
         if(validBody){
-            GatherStatBonuses(headPart);
-            GatherStatBonuses(forelegPart);
-            GatherStatBonuses(backlegPart);
-            GatherStatBonuses(torsoPart);
+            GatherStatBonuses(headPartData);
+            GatherStatBonuses(forelegPartData);
+            GatherStatBonuses(backlegPartData);
+            GatherStatBonuses(torsoPartData);
         }
     }
 
@@ -99,7 +109,7 @@ public class Animals : MonoBehaviour
 
     public void SlashAttack(){
         if(validBody){
-            forelegPart.PlayAttack();
+            forelegPartData.PlayAttack();
             currentAttackType = AttackType.slash;
             currentAttackBonus = slashBonus;
         }
@@ -107,7 +117,7 @@ public class Animals : MonoBehaviour
 
     public void PierceAttack(){
         if(validBody){
-            forelegPart.PlayAttack();
+            forelegPartData.PlayAttack();
             currentAttackType = AttackType.pierce;
             currentAttackBonus = pierceBonus;
         }
@@ -115,7 +125,7 @@ public class Animals : MonoBehaviour
 
     public void BluntAttack(){
         if(validBody){
-            forelegPart.PlayAttack();
+            forelegPartData.PlayAttack();
             currentAttackType = AttackType.blunt;
             currentAttackBonus = bluntBonus;
         }

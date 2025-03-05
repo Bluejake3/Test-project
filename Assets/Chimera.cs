@@ -5,7 +5,8 @@ using UnityEngine;
 public class Chimera : MonoBehaviour
 {
     [Header("Body Parts")]
-    [SerializeField] private List<PartPrefabsData> bodyParts;
+    [SerializeField] private List<GameObject> bodyParts;
+    private List<PartPrefabsData> bodyPartsData;
     PartPrefabsData firstForelegPart;
     [SerializeField] private bool validBody = false;
 
@@ -22,15 +23,19 @@ public class Chimera : MonoBehaviour
     float currentAttackBonus = 0;
     AttackType currentAttackType;
 
-
     private void Awake() {
+        foreach(GameObject currentPart in bodyParts){
+            bodyPartsData.Add(currentPart.GetComponent<PartPrefabsData>());
+        }
+    }
+    private void Start() {
         CheckValidity();
         GatherStat();
         SearchFirstForelegPart();
     }
     void CheckValidity(){
         bool headExist = false, forelegExist = false, backlegExist = false, torsoExist = false;
-        foreach(PartPrefabsData currentParts in bodyParts){
+        foreach(PartPrefabsData currentParts in bodyPartsData){
             
             switch(currentParts.GetBodyPartType()){
                 case BodyPartType.head:
@@ -65,14 +70,14 @@ public class Chimera : MonoBehaviour
     }
     void GatherStat(){
         if (validBody){
-            foreach(PartPrefabsData currentParts in bodyParts){
+            foreach(PartPrefabsData currentParts in bodyPartsData){
                 GatherStatBonuses(currentParts);
             }
         }
     }
 
     void SearchFirstForelegPart(){
-        foreach(PartPrefabsData currentParts in bodyParts){
+        foreach(PartPrefabsData currentParts in bodyPartsData){
             if(currentParts.GetBodyPartType() != BodyPartType.foreleg){
                 continue;
             }
