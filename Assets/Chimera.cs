@@ -167,6 +167,7 @@ public class Chimera : MonoBehaviour
         if (hitAnimals.GetHitPoint()<=0)
         {
             WinGame();
+            Destroy(other.gameObject);
         }
     }
 
@@ -190,9 +191,6 @@ public class Chimera : MonoBehaviour
 
     public void ReduceHitpoint(float damage){
         hitPoint -= damage;
-        if(hitPoint <= 0){
-            Destroy(this);
-        }
     }
 
     public void TakeDamage(float attack, float attackBonus, AttackType attackType, PartPrefabsData hitBodyPart){
