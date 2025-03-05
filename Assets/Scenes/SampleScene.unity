@@ -167,10 +167,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a15ad0640beee94c813343d45e527b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  headPart: {fileID: 1178807049250600873, guid: 807504a553337084d9f90745e6e85123, type: 3}
-  forelegPart: {fileID: 1178807049250600873, guid: 079a645948544064e905a04157d53178, type: 3}
-  backlegPart: {fileID: 1178807049250600873, guid: bc34b61db907dfd4e86fdadd6749e985, type: 3}
-  torsoPart: {fileID: 1178807049250600873, guid: 44903334bb3dcb44d82d779345c3b4c2, type: 3}
+  headPart: {fileID: 1489517878664182773, guid: 807504a553337084d9f90745e6e85123, type: 3}
+  forelegPart: {fileID: 1489517878664182773, guid: 079a645948544064e905a04157d53178, type: 3}
+  backlegPart: {fileID: 1489517878664182773, guid: bc34b61db907dfd4e86fdadd6749e985, type: 3}
+  torsoPart: {fileID: 1489517878664182773, guid: 44903334bb3dcb44d82d779345c3b4c2, type: 3}
   hitPoint: 0
   attack: 0
   defense: 0
@@ -307,10 +307,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bodyParts:
-  - {fileID: 1178807049250600873, guid: bc34b61db907dfd4e86fdadd6749e985, type: 3}
-  - {fileID: 1178807049250600873, guid: 079a645948544064e905a04157d53178, type: 3}
-  - {fileID: 1178807049250600873, guid: 807504a553337084d9f90745e6e85123, type: 3}
-  - {fileID: 1178807049250600873, guid: 44903334bb3dcb44d82d779345c3b4c2, type: 3}
+  - {fileID: 1489517878664182773, guid: bc34b61db907dfd4e86fdadd6749e985, type: 3}
+  - {fileID: 1489517878664182773, guid: 079a645948544064e905a04157d53178, type: 3}
+  - {fileID: 1489517878664182773, guid: 44903334bb3dcb44d82d779345c3b4c2, type: 3}
+  - {fileID: 1489517878664182773, guid: 807504a553337084d9f90745e6e85123, type: 3}
+  - {fileID: 1489517878664182773, guid: 807504a553337084d9f90745e6e85123, type: 3}
+  - {fileID: 1489517878664182773, guid: 807504a553337084d9f90745e6e85123, type: 3}
+  - {fileID: 1489517878664182773, guid: 807504a553337084d9f90745e6e85123, type: 3}
   validBody: 0
   hitPoint: 0
   attack: 0
