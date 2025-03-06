@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Chimera : MonoBehaviour
 {
@@ -137,6 +138,10 @@ public class Chimera : MonoBehaviour
                 break;
             }
         }
+    }
+
+    void OnMove(InputSystem value){
+        Debug.Log("chimera moved");
     }
 
     public void SlashAttack(){

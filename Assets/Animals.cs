@@ -56,6 +56,9 @@ public class Animals : MonoBehaviour
             GatherStatBonuses(torsoPartData);
         }
     }
+    void OnMove(InputSystem value){
+        Debug.Log("animal moved");
+    }
 
     void GatherStatBonuses(PartPrefabsData bodyPart){
         hitPoint += bodyPart.GetHitPoint();
